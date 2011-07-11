@@ -1,3 +1,11 @@
+/*
+---
+name: Function.prototype.bind
+provides: [Function.prototype.bind]
+for: [IE6,IE7,IE8,FF3, FF3.5,SF3.2,SF4,SF5,CH5,CH6,OP10,OP10.5,OP11,OP11.5]
+...
+*/
+
 if ( !Function.prototype.bind )
 Function.prototype.bind = function( obj ) {
 	if(typeof this !== 'function')

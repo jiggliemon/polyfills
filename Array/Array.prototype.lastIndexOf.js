@@ -1,3 +1,11 @@
+/*
+---
+name: Array.prototype.lastIndexOf
+provides: [Array.prototype.lastIndexOf]
+for: [IE6,IE7,IE8]
+...
+*/
+
 if (!Array.prototype.lastIndexOf)
 Array.prototype.lastIndexOf = function(value /*, fromIndex */) {
 	var  length = this.length

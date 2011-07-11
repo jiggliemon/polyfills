@@ -1,8 +1,21 @@
-if (!Array.prototype.every)
-Array.prototype.every = function every(block /*, context */) {
-	var context = arguments[1];
-	for (var i = 0; i < this.length; i++)
-		if (!block.call(context, this[i]))
+/*
+---
+name: Array.prototype.every
+provides: [Array.prototype.every]
+for: [IE6,IE7,IE8]
+...
+*/
+
+if (!Array.prototype.every){
+Array.prototype.every = function(block /*, context */) {
+	var  context = arguments[1]
+		,i = 0
+		,length = this.length
+		;
+	for (; i < length; i++){
+		if (!block.call(context, this[i])){
 			return false;
+		}
+	}
 	return true;
-}
+};}

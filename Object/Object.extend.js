@@ -1,9 +1,17 @@
-if(!Object.extend)
+/*
+---
+name: Object.extend
+provides: [Object.extend]
+...
+*/
+
+if(!Object.extend){
 Object.extend = function(original){
 	var  i =  1,
 	    ,l = arguments.length
 	    ,key
 	    ,extend
+		;
 	for (; i < l; i++){
 		extended = arguments[i] || {};
 
@@ -12,4 +20,4 @@ Object.extend = function(original){
 		}
 	}
 	return original;
-};
+};}

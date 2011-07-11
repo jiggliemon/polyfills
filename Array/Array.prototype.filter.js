@@ -1,9 +1,19 @@
-if (!Array.prototype.filter)
-Array.prototype.filter = function filter(block /*, context */) {
-	var values = [];
-	var context = arguments[1];
-	for (var i = 0; i < this.length; i++)
+/*
+---
+name: Array.prototype.filter
+provides: [Array.prototype.filter]
+for: [IE6,IE7,IE8]
+...
+*/
+
+if (!Array.prototype.filter){
+Array.prototype.filter = function ( block /*, context */) {
+	var  values = []
+		,context = arguments[1]
+		,i = 0
+		,length = this.length
+	for (; i < length; i++)
 		if (block.call(context, this[i]))
 			values.push(this[i]);
 	return values;
-}
+};}

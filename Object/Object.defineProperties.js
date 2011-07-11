@@ -1,4 +1,13 @@
-if(!Object.defineProperties)
+/*
+---
+name: Object.defineProperties
+provides: [Object.defineProperties]
+requires: [Object.defineProperty,Object.keys]
+for: [IE6,IE7,IE8,FF3,FF3.5,FF3.6,SF3.2,SF4,SF5,OP10.1,OP10.5,OP11,OP11.5]
+...
+*/
+
+if(!Object.defineProperties){
 Object.defineProperties = function(obj, properties) {
 	function convertToDescriptor(desc) {
 		function hasProperty(obj, prop) {
@@ -50,10 +59,14 @@ Object.defineProperties = function(obj, properties) {
 	var  keys = Object.keys(properties)
 		,descs = []
 		,i = 0
-	for (; i < keys.length; i++)
+		;
+	for (; i < keys.length; i++){
 		descs.push([keys[i], convertToDescriptor(properties[keys[i]])]);
-	for (var i = 0; i < descs.length; i++)
+	}
+	
+	for (i = 0; i < descs.length; i++){
 		Object.defineProperty(obj, descs[i][0], descs[i][1]);
+	}
 	
 	return obj;
-}
+};}

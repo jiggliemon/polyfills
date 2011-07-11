@@ -1,10 +1,13 @@
 /*
 ---
-
-===
+name: Array.prototype.map
+provides: [Array.prototype.map]
+for: [IE6,IE7,IE8]
+...
 */
+
 if (!Array.prototype.map)
-Array.prototype.map = function(fun /*, thisp */){
+Array.prototype.map = function(fn /*, thisp */){
 	"use strict";
 
 	if (this === void 0 || this === null)
@@ -13,7 +16,7 @@ Array.prototype.map = function(fun /*, thisp */){
 	var  t = Object(this)
 		,len = t.length >>> 0
 		
-	if (typeof fun !== "function")
+	if (typeof fn !== "function")
 		throw new TypeError();
 
 	var  res = new Array(len)
@@ -22,7 +25,7 @@ Array.prototype.map = function(fun /*, thisp */){
 	
 	for (; i < len; i++){
 		if (i in t)
-			res[i] = fun.call(thisp, t[i], i, t);
+			res[i] = fn.call(thisp, t[i], i, t);
 	}
 
 	return res;
