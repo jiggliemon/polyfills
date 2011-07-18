@@ -16,7 +16,7 @@ sources:
   - "Array/Array.prototype.reduce.js"
   - "Array/Array.prototype.shuffle.js"
   - "Array/Array.prototype.some.js"
-  - "Data/Date.now.js"
+  - "Date/Date.now.js"
   - "Element/Element.placeholder.js"
   - "Event/Event.js"
   - "Function/Function.prototype.bind.js"
