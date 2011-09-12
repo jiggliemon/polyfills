@@ -38,7 +38,9 @@ var Events = namespace.Events = function(){
 			if(events && length) {
 				for (; i < length; i++) {
 					if (i in events) {
+						try{
 						events[i].apply(this,args);
+						} catch(e) { throw new Error(e); }
 					}
 				}
 			}
