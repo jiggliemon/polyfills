@@ -1,9 +1,9 @@
 (function(global,_NAMESPACE_){
-var REGEX = /:(latch(ed$)?)/i
 
 var Events = _NAMESPACE_.Events = function(){
 	var  _events = {}
 		,_latched = {}
+		,REGEX = /:(latch(ed$)?)/i
 		
 	function removeLatched(type){
 		if(type.indexOf(':'))
