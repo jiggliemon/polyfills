@@ -23,7 +23,7 @@ var Events = _NAMESPACE_.Events = function(){
 			if(!(typeof callback == 'function')) 
 				throw new TypeError(_NAMESPACE_.Events.errors.callback_must_be_function); 
   
-			(_latched[type])?callback():events.push(callback);
+			(_latched[type])? setTimeout(callback,15) : events.push(callback);
 			return this;
 		}
 
