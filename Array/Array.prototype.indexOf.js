@@ -6,7 +6,7 @@ for: [IE6,IE7,IE8]
 ...
 */
 
-if (!Array.prototype.indexOf){
+if (!Array.prototype.indexOf)
 Array.prototype.indexOf = function(searchElement /*, fromIndex */)
 {
 	"use strict";
