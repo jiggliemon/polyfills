@@ -6,7 +6,7 @@ requires: [Object.defineProperty,Object.keys]
 for: [IE6,IE7,IE8,FF3,FF3.5,FF3.6,SF3.2,SF4,SF5,OP10.1,OP10.5,OP11,OP11.5]
 ...
 */
-define(['Pollyfills/Object/Object.defineProperty','Pollyfills/Object/Object.keys'],function(){
+define(['./Object.defineProperty','./Object.keys'],function(){
 	if(!Object.defineProperties)
 	Object.defineProperties = function(obj, properties) {
 		function convertToDescriptor(desc) {
