@@ -5,7 +5,7 @@ provides: [Object.toQueryString]
 requires: [Array.isArray,Array.forEach]
 ...
 */
-define(['Polyfills/Array/Array.isArray','Polyfills/Array/Array.forEach'],function(){
+define(['../Array/Array.isArray','../Array/Array.forEach'],function(){
 	if(!Object.toQueryString)
 	Object.toQueryString = function(object, base){
 		// adapted from MooTools

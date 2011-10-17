@@ -5,7 +5,7 @@ provides: [Array.prototype.map]
 for: [IE6,IE7,IE8]
 ...
 */
-define(['./Array.isArray'],function(){
+define(function(){
 	if (!Array.prototype.map)
 	Array.prototype.map = function(fn /*, thisp */){
 		"use strict";
