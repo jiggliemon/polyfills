@@ -4,7 +4,7 @@ name: Function.prototype.construct
 provides: [Function.prototype.construct]
 ...
 */
-define(function(){
+define(['./Function.prototype.bind'],function(){
 	if ( !Function.prototype.construct )
 	Function.prototype.construct = function(args) {
 		var  boundArgs = [].concat.apply([null], args)
