@@ -5,7 +5,7 @@ provides: [Object.toQueryString]
 requires: [Array.isArray,Array.forEach]
 ...
 */
-define(['../Array/Array.isArray','../Array/Array.forEach'],function(){
+define(['../Array/Array.isArray','../Array/Array.prototype.forEach'],function(){
 	if(!Object.toQueryString)
 	Object.toQueryString = function(object, base){
 		// adapted from MooTools
@@ -24,7 +24,7 @@ define(['../Array/Array.isArray','../Array/Array.forEach'],function(){
 				}
 		
 				if (Array.isArray(value)){
-					Array.forEach(value, function(val, i){
+					value.forEach(function(val, i){
 						qs[i] = val;
 					});
 					result = Object.toQueryString(qs, key);
