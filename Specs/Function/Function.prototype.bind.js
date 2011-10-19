@@ -1,3 +1,3 @@
-define(['Base/Function/Function.prototype.bind'],function(){
+define(['Polyfills/Function/Function.prototype.bind'],function(){
   
 });

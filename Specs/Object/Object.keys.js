@@ -1,4 +1,4 @@
-define(['Base/Object/Object.keys','Base/Array/Array.isArray'],function(){
+define(['Polyfills/Object/Object.keys','Polyfills/Array/Array.isArray'],function(){
   
   
   describe('Object.keys', function(){

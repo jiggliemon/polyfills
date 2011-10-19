@@ -1,4 +1,4 @@
-define(['Base/Array/Array.isArray'],function(){
+define(['Polyfills/Array/Array.isArray'],function(){
   describe('Array.isArray',function(){
     
     it('Should be truthy when passed an array',function(){

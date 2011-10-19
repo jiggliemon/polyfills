@@ -1,3 +1,3 @@
-define(['Base/Object/Object.create'],function(){
+define(['Polyfills/Object/Object.create'],function(){
   
 });

@@ -1,3 +1,3 @@
-define(['Base/Object/Object.getPrototypeOf'],function(){
+define(['Polyfills/Object/Object.getPrototypeOf'],function(){
   
 });

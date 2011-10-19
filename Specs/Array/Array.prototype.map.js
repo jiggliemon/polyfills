@@ -1,4 +1,4 @@
-define(['Base/Array/Array.prototype.map'],function(){
+define(['Polyfills/Array/Array.prototype.map'],function(){
   
   function getTestArray(){    
     var array = [0, 1, 2, 3];

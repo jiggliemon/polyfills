@@ -1,4 +1,4 @@
-define(['Base/Array/Array.prototype.indexOf'],function(){
+define(['Polyfills/Array/Array.prototype.indexOf'],function(){
   
   describe('Array.indexOf', function(){
 

@@ -1,4 +1,4 @@
-define(['Base/Array/Array.prototype.some'],function(){
+define(['Polyfills/Array/Array.prototype.some'],function(){
   function getTestArray(){    
     var array = [0, 1, 2, 3];
     delete array[1];

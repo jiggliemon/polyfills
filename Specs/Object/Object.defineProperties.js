@@ -1,3 +1,3 @@
-define(['Base/Object/Object.defineProperties'],function(){
+define(['Polyfills/Object/Object.defineProperties'],function(){
   
 });

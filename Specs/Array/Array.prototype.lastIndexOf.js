@@ -1,3 +1,3 @@
-define(['Base/Array/Array.prototype.lastIndexOf'],function(){
+define(['Polyfills/Array/Array.prototype.lastIndexOf'],function(){
   
 })

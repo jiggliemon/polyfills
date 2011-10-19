@@ -1,3 +1,3 @@
-define(['Base/Object/Object.extend'],function(){
+define(['Polyfills/Object/Object.extend'],function(){
   
 });

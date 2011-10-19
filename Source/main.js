@@ -35,7 +35,7 @@
  };
 
  for(var nat in Polyfills){
-   var path = ['.',nat].join('/')
+   var path = ['Polyfills',nat].join('/')
       ,Native = nat
       ,fills = Polyfills[nat]
       ,count = fills.length

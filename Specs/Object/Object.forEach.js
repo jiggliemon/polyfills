@@ -1,3 +1,3 @@
-define(['Base/Object/Object.forEach'],function(){
+define(['Polyfills/Object/Object.forEach'],function(){
   
 });

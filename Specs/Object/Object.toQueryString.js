@@ -1,3 +1,3 @@
-define(['Base/Object/Object.toQueryString'],function(){
+define(['Polyfills/Object/Object.toQueryString'],function(){
   
 });

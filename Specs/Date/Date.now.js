@@ -1,3 +1,3 @@
-define(['Base/Date/Date.now'],function(){
+define(['Polyfills/Date/Date.now'],function(){
   
 });

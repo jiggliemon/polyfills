@@ -1,3 +1,3 @@
-define(['Base/Array/Array.prototype.shuffle'],function(){
+define(['Polyfills/Array/Array.prototype.shuffle'],function(){
   
 })

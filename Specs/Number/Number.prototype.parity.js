@@ -1,3 +1,3 @@
-define(['Base/Number/Number.prototype.parity'],function(){
+define(['Polyfills/Number/Number.prototype.parity'],function(){
   
 });

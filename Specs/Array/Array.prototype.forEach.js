@@ -1,4 +1,4 @@
-define(['Base/Array/Array.prototype.forEach'],function(){
+define(['Polyfills/Array/Array.prototype.forEach'],function(){
   describe('Array.forEach', function(){
 
     // disabled since Array.from does not exist
