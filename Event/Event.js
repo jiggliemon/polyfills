@@ -16,7 +16,10 @@ var Events = _NAMESPACE_.Events = function(){
   }
   
   return {
-     addEvent: function(/* Sting */ type, /* Function */ callback){
+     getEvents: function(){
+       return Object.keys(_events);
+    }
+    ,addEvent: function(/* Sting */ type, /* Function */ callback){
       var  type = removeLatched(type)
         ,events = _events[type] = _events[type] || [];
       
@@ -39,25 +42,29 @@ var Events = _NAMESPACE_.Events = function(){
     ,fireEvent: function(/* String */ type) {
       
       var  type = removeLatched(type)
+          ,isLatched = _latched[type]
           ,events = _events[type]
           ,length = events.length >>> 0
           ,args = Array.prototype.slice.call(arguments,1)
           ,i = 0
       
-      if(_latched[type])
-        _arguments[type] = args;
-        
       if(events && length) {
         for (; i < length; i++) {
           if (i in events) {
             try{
               events[i].apply(this,args);
             } catch (e) { 
-              throw new Error('Event Error::'+type+':: '+e);
+              throw new Error('Event Error - '+type+':: '+ e);
             }
           }
         }
       }
+      
+      if(isLatched){
+        _arguments[type] = args;
+        delete events;
+      }
+      
       return this;
     }
   };
