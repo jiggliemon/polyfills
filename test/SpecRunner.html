@@ -9,7 +9,10 @@
   <script src="jasmine/jasmine-html.js"></script>
   <script src="require.js"></script>
   <script type="text/javascript">
-  window.console && console.time('Load Time');
+  if(window.console){
+    if(console.time) 
+      console.time('Load Time');
+  }
   require({
      packages: [
       {
@@ -63,7 +66,8 @@
         
         if(window.console){
           console.log(loaded);
-          console && console.timeEnd('Load Time');
+          if(console.time)
+            console.timeEnd('Load Time');
         }
         
         jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
