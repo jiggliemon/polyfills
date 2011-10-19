@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Polyfills Spec Runner</title>
+
+	<link rel="stylesheet" type="text/css" href="jasmine/jasmine.css">
+	<script src="jasmine/jasmine.js"></script>
+	<script src="jasmine/jasmine-html.js"></script>
+	<script src="require.js"></script>
+	<script type="text/javascript">
+
+	require({
+		paths: {
+			'Test': '../Specs',
+			'Base': '../Source'
+		},
+		ready: function(){
+			require([
+			  // Array
+				'Test/Array/Array.isArray',
+				'Test/Array/Array.prototype.every',
+				'Test/Array/Array.prototype.filter',
+				'Test/Array/Array.prototype.forEach',
+				'Test/Array/Array.prototype.indexOf',
+				'Test/Array/Array.prototype.firstIndexOf',
+				'Test/Array/Array.prototype.map',
+				'Test/Array/Array.prototype.reduce',
+				'Test/Array/Array.prototype.shuffle',
+				'Test/Array/Array.prototype.some',
+				// Date
+				'Test/Date/Date.now',
+				// Element
+				'Test/Element/Element.placeholder',
+				// Event
+				'Test/Event/Events',
+				// Function
+				'Test/Function/Function.prototype.bind',
+				'Test/Function/Function.prototype.construct',
+				// Number
+				'Test/Number/Number.prototype.parity',
+				// Object
+				'Test/Object/Object.create',
+				'Test/Object/Object.defineProperties',
+				'Test/Object/Object.extend',
+				'Test/Object/Object.forEach',
+				'Test/Object/Object.getOwnPropertyNames',
+				'Test/Object/Object.getPrototypeOf',
+				'Test/Object/Object.keys',
+				'Test/Object/Object.toQueryString',
+				// String
+				'Test/String/String.prototype.trim'
+			], function(){
+				jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+				jasmine.getEnv().execute();
+			});
+		}
+	});
+	</script>
+</head>
+
+<body>
+</body>
+</html>
+
