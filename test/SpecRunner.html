@@ -60,8 +60,11 @@
         // String
         'Test/String/String.prototype.trim'
       ], function(loaded){
-        window.console && console.log(loaded);
-        window.console $$ console.timeEnd('Load Time');
+        
+        if(window.console){
+          console.log(loaded);
+          console && console.timeEnd('Load Time');
+        }
         
         jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
         jasmine.getEnv().execute();
