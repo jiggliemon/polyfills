@@ -11,12 +11,21 @@
 	<script type="text/javascript">
 
 	require({
-		paths: {
-			'Test': '../Specs',
-			'Base': '../Source'
-		},
-		ready: function(){
+	   packages: [
+			{
+				name: 'Test',
+				location: '../Specs'
+			},
+			{
+				name: 'Base',
+				location: '../Source',
+				main:'lib/main',
+				lib: '.'
+			}
+		]
+		,ready: function(){
 			require([
+			  'Base/main',
 			  // Array
 				'Test/Array/Array.isArray',
 				'Test/Array/Array.prototype.every',
@@ -50,7 +59,8 @@
 				'Test/Object/Object.toQueryString',
 				// String
 				'Test/String/String.prototype.trim'
-			], function(){
+			], function(loaded){
+			  console.log(loaded);
 				jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
 				jasmine.getEnv().execute();
 			});
