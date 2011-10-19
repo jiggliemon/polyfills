@@ -19,7 +19,19 @@ define(['Polyfills/Array/Array.prototype.map'],function(){
       });
       expect(arr).toEqual([2,3,4,1,1,1]);
     });
-
+    
+    it('should return an array with the same length', function(){
+      expect([1, 2, 3, undefined].map(function(v){
+        return v;
+      }).length).toEqual(4);
+    });
+    
+    it('shoud return an empty array when the thisArg doesn\'t have a length property', function(){
+      expect([].map.call({}, function(){
+        return 1;
+      })).toEqual([]);
+    });
+        
     it('should skip deleted elements', function(){
       var i = 0;
       getTestArray().map(function(){
