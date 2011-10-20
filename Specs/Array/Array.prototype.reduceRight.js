@@ -1,6 +1,8 @@
-define('Polyfills/Array/Array.prototype.reduceRight',function()){
-  describe('reduceRight', function() {
+define(['Polyfills/Array/Array.prototype.reduceRight'], function(){
+  
+  describe('Array.prototype.reduceRight', function() {
     var testSubject;
+    
     beforeEach(function() {
       testSubject = [1,2,3];
     });
@@ -89,6 +91,7 @@ define('Polyfills/Array/Array.prototype.reduceRight',function()){
         expect(testSubject.reduceRight.length).toBe(1);
       });
     });
+    
     describe('Array-like objects', function() {
       
       beforeEach(function() {
@@ -177,5 +180,6 @@ define('Polyfills/Array/Array.prototype.reduceRight',function()){
       });
     
     });
+    
   });
 });

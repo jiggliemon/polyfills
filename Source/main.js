@@ -10,6 +10,7 @@
       ,'Array.prototype.lastIndexOf'
       ,'Array.prototype.map'
       ,'Array.prototype.reduce'
+      ,'Array.prototype.reduceRight'
       ,'Array.prototype.shuffle'
       ,'Array.prototype.some'
     ]

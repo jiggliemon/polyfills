@@ -17,14 +17,14 @@
   require({
      packages: [
       {
-        name: 'Test',
-        location: '../Specs'
+         name: 'Test'
+        ,location: '../Specs'
       },
       {
-        name: 'Polyfills',
-        location: '../Source',
-        main:'lib/main',
-        lib: '.'
+         name: 'Polyfills'
+        ,location: '../Source'
+        ,main:'lib/main'
+        ,lib: '.'
       }
     ]
     ,ready: function(){
@@ -39,6 +39,7 @@
         'Test/Array/Array.prototype.lastIndexOf',
         'Test/Array/Array.prototype.map',
         'Test/Array/Array.prototype.reduce',
+        'Test/Array/Array.prototype.reduceRight',
         'Test/Array/Array.prototype.shuffle',
         'Test/Array/Array.prototype.some',
         // Date
