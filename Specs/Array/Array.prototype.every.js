@@ -43,7 +43,13 @@ define(['Polyfills/Array/Array.prototype.every'],function(){
       [1].every(function() {context = this;});
       expect(context).toBe(function() {return this}.call());
     });
-
+    
+    it('should set the right context when provided one', function() {
+      var context, obj = {1:1};
+      [1].every(function() {context = this;},obj);
+      expect(context).toBe(obj);
+    });
+    
     it('should return true if the array is empty', function() {
       actual = [].every(function() { return true; });
       expect(actual).toBeTruthy();

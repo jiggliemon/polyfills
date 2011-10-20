@@ -43,6 +43,12 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       [1].some(function() {context = this;});
       expect(context).toBe(function() {return this}.call());
     });
+    
+    it('should set the right context when provided one', function() {
+      var context, obj = {1:1};
+      [1].some(function() {context = this;},obj);
+      expect(context).toBe(obj);
+    });
 
     it('should return false if it runs to the end', function() {
       actual = testSubject.some(function() {});

@@ -36,6 +36,18 @@ define(['Polyfills/Array/Array.prototype.filter'],function(){
       array.filter(callback);
       expect(callback).toHaveBeenCalledWith('1', 0, array);
     });
+    
+    it('should set the right context when given none', function() {
+      var context;
+      [1].filter(function() {context = this;});
+      expect(context).toBe(function() {return this}.call());
+    });
+    
+    it('should set the right context when provided one', function() {
+      var context, obj = {1:1};
+      [1].filter(function() {context = this;},obj);
+      expect(context).toBe(obj);
+    });
 
   });
   

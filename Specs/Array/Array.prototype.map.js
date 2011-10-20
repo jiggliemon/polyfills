@@ -47,22 +47,17 @@ define(['Polyfills/Array/Array.prototype.map'],function(){
       expect(callback).toHaveBeenCalledWith('1', 0, array);
     });
     
-    it('the callback\'s context should be set to the second passed argument if available',function(){
-      var context = {a:1,b:2,c:3}, xcontext,ycontext;
-      
-      [1].map(function(){
-        xcontext = this;
-        return true;
-      },context);
-      
-      [1].map(function(el){
-        ycontext = this;
-        return true;
-      })
-      
-      expect(context).toEqual(xcontext);
-      expect(context).toNotEqual(ycontext);
-    })
+    it('should set the right context when given none', function() {
+      var context;
+      [1].map(function() {context = this;});
+      expect(context).toBe(function() {return this}.call());
+    });
+    
+    it('should set the right context when provided one', function() {
+      var context, obj = {1:1};
+      [1].map(function() {context = this;},obj);
+      expect(context).toBe(obj);
+    });
 
   });
   
