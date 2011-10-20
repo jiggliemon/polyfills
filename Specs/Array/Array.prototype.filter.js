@@ -29,6 +29,13 @@ define(['Polyfills/Array/Array.prototype.filter'],function(){
 
       expect(i).toEqual(2);
     });
+    
+    it('should pass the right parameters', function() {
+      var  callback = jasmine.createSpy('callback')
+          ,array = ['1'];
+      array.filter(callback);
+      expect(callback).toHaveBeenCalledWith('1', 0, array);
+    });
 
   });
   

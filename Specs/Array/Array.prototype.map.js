@@ -11,7 +11,7 @@ define(['Polyfills/Array/Array.prototype.map'],function(){
     return typeof value === 'number';
   }
   
-  describe('Array.map', function(){
+  describe('Array.prototype.map', function(){
 
     it('should return a mapping of an array', function(){
       var arr = [1,2,3,0,0,0].map(function(item){
@@ -26,7 +26,7 @@ define(['Polyfills/Array/Array.prototype.map'],function(){
       }).length).toEqual(4);
     });
     
-    it('shoud return an empty array when the thisArg doesn\'t have a length property', function(){
+    it('shoud return an empty array when the context doesn\'t have a length property', function(){
       expect([].map.call({}, function(){
         return 1;
       })).toEqual([]);
@@ -39,6 +39,30 @@ define(['Polyfills/Array/Array.prototype.map'],function(){
       });
       expect(i).toEqual(2);
     });
+    
+    it('should pass the right parameters', function() {
+      var  callback = jasmine.createSpy('callback')
+          ,array = ['1'];
+      array.map(callback);
+      expect(callback).toHaveBeenCalledWith('1', 0, array);
+    });
+    
+    it('the callback\'s context should be set to the second passed argument if available',function(){
+      var context = {a:1,b:2,c:3}, xcontext,ycontext;
+      
+      [1].map(function(){
+        xcontext = this;
+        return true;
+      },context);
+      
+      [1].map(function(el){
+        ycontext = this;
+        return true;
+      })
+      
+      expect(context).toEqual(xcontext);
+      expect(context).toNotEqual(ycontext);
+    })
 
   });
   
