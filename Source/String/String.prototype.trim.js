@@ -5,14 +5,24 @@ provides: [String.prototype.trim]
 for: [IE6,IE7,IE8,FF3,SF3.2,SF4,OP10.1]
 ...
 */
+
+// ES5 15.5.4.20
+// http://es5.github.com/#x15.5.4.20
 define(function(){
-	if(!String.prototype.trim)
-	String.prototype.trim = function() {
-		var  str = this.replace(/^\s\s*/, '')
-				,ws = /\s/
-				,i = str.length;
-			
-		while (ws.test(str.charAt(--i)));
-		return str.slice(0, i + 1);
-	};
+  var ws = "\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003" +
+      "\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028" +
+      "\u2029\uFEFF";
+
+  if (!String.prototype.trim || ws.trim()) {
+      // http://blog.stevenlevithan.com/archives/faster-trim-javascript
+      // http://perfectionkills.com/whitespace-deviations/
+      ws = "[" + ws + "]";
+      var  trimBeginRegexp = new RegExp("^" + ws + ws + "*")
+          ,trimEndRegexp = new RegExp(ws + ws + "*$");
+      
+      String.prototype.trim = function() {
+          return String(this).replace(trimBeginRegexp, "").replace(trimEndRegexp, "");
+      };
+  }
 });
+
