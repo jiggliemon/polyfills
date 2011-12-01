@@ -3,7 +3,7 @@
  var Polyfills = {
     'Array':[
        'Array.isArray'
-      ,'Array.prototype.every'
+      //,'Array.prototype.every'
       ,'Array.prototype.filter'
       ,'Array.prototype.forEach'
       ,'Array.prototype.indexOf'
@@ -11,7 +11,7 @@
       ,'Array.prototype.map'
       ,'Array.prototype.reduce'
       ,'Array.prototype.reduceRight'
-      ,'Array.prototype.shuffle'
+      //,'Array.prototype.shuffle'
       ,'Array.prototype.some'
     ]
    ,'Date':[
@@ -24,13 +24,16 @@
       ,'Object.getOwnPropertyNames'
       ,'Object.getPrototypeOf'
       ,'Object.keys'
-      ,'Object.toQueryString'
+      //,'Object.toQueryString'
     ]
    ,'Function':[
        'Function.prototype.bind'
-      ,'Function.prototype.construct'
+      //,'Function.prototype.construct'
     ]
    //,'String':[]
+   //,'Event':[
+   //   'Events'
+   //]
  };
  
  for(var nat in Polyfills){
@@ -64,6 +67,14 @@
       "\u2029\uFEFF";
   if (!String.prototype.trim || ws.trim()) {
     req.push('Polyfills/String/String.prototype.trim');
+  } else {
+    define('Polyfills/String/String.prototype.trim',{});
+  }
+
+  if(!window.JSON){
+    req.push('Polyfills/JSON/JSON');
+  } else {
+    define('Polyfills/JSON/JSON',{});
   }
 
 // Download all the required fills
