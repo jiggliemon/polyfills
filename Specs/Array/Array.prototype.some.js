@@ -9,7 +9,7 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       testSubject = [2, 3, undefined, true, 'hej', null, 2, false, 0];
       delete testSubject[1];
     });
-    
+
     function createArrayLikeFromArray(arr) {
       var o = {};
       Array.prototype.forEach.call(arr, function(e, i) {
@@ -25,7 +25,7 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       array.some(callback);
       expect(callback).toHaveBeenCalledWith('1', 0, array);
     });
-    
+
     it('should not affect elements added to the array after it has begun', function() {
       var arr = [1,2,3],
         i = 0;
@@ -37,13 +37,13 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       expect(arr).toEqual([1,2,3,4,5,6]);
       expect(i).toBe(3);
     });
-    
+
     it('should set the right context when given none', function() {
       var context;
       [1].some(function() {context = this;});
       expect(context).toBe(function() {return this}.call());
     });
-    
+
     it('should set the right context when provided one', function() {
       var context, obj = {1:1};
       [1].some(function() {context = this;},obj);
@@ -54,12 +54,12 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       actual = testSubject.some(function() {});
       expect(actual).toBeFalsy();
     });
-    
+
     it('should return true if it is stopped somewhere', function() {
       actual = testSubject.some(function() { return true; });
       expect(actual).toBeTruthy();
     });
-    
+
     it('should return false if there are no elements', function() {
       actual = [].some(function() { return true; });
       expect(actual).toBeFalsy();
@@ -76,7 +76,7 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       });
       expect(actual).toExactlyMatch(expected);
     });
-    
+
     it('should stop after 3 elements using a context', function() {
       var o = { a: actual };
       testSubject.some(function(obj, index) {
@@ -102,7 +102,7 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       });
       expect(actual).toExactlyMatch(expected);
     });
-    
+
     it('should stop after 3 elements in an array-like object using a context', function() {
       var ts = createArrayLikeFromArray(testSubject);
       var o = { a: actual };
@@ -116,6 +116,6 @@ define(['Polyfills/Array/Array.prototype.some'],function(){
       }, o);
       expect(actual).toExactlyMatch(expected);
     });
-    
+
   });
 })

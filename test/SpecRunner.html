@@ -11,7 +11,7 @@
   <script src="require.js"></script>
   <script type="text/javascript">
   if(window.console){
-    if(console.time) 
+    if(console.time)
       console.time('Load Time');
   }
   require({
@@ -65,13 +65,13 @@
         // String
         'Test/String/String.prototype.trim'
       ], function(loaded){
-        
+
         if(window.console){
           console.log(loaded);
           if(console.time)
             console.timeEnd('Load Time');
         }
-        
+
         jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
         jasmine.getEnv().execute();
       });

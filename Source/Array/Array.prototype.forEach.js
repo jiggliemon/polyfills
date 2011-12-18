@@ -17,7 +17,7 @@ define(function(){
 			,len = t.length >>> 0
 			,thisp = arguments[1]
 			,i = 0;
-		
+
 		if (typeof fn !== "function"){
 			throw new TypeError();
 		}

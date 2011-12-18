@@ -12,7 +12,7 @@ define(function(){
           ,context = arguments[1]
           ,i = 0
           ,length = this.length;
-      
+
       for (; i < length; i++){
         if(i in this){
           if (block.call(context, this[i], i, this)){

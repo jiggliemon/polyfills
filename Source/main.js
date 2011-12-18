@@ -1,5 +1,5 @@
 !function(req){
- 
+
  var Polyfills = {
     'Array':[
        'Array.isArray'
@@ -35,31 +35,31 @@
    //   'Events'
    //]
  };
- 
+
  for(var nat in Polyfills){
    var path = ['Polyfills',nat].join('/')
       ,Native = nat
       ,fills = Polyfills[nat]
       ,count = fills.length
-   
+
    while(count--){
      var fill = [path,fills[count]].join('/')
         ,method = fill.split('.').pop()
         ,Obj = (fill.indexOf('.prototype.') !== -1)? window[Native].prototype : window[Native];
-        
+
      if(!Obj[method]){
        // This array will contain only the fills that arent currently supported by your browser.
        req.push(fill);
      } else {
        // console.log(fill + ' Already exists');
        // Create a dummy module if the method already exists on the native.
-       // This will prevent any other modules dependencies from trying to 
+       // This will prevent any other modules dependencies from trying to
        // download this module.
        define(fill,{});
      }
    }
  }
- 
+
  // Special cases and DOM fills
   // The native trim method doesn't remove all the whitespace characters (unicode)
   var ws = "\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003" +

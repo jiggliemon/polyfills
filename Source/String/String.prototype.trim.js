@@ -19,7 +19,7 @@ define(function(){
       ws = "[" + ws + "]";
       var  trimBeginRegexp = new RegExp("^" + ws + ws + "*")
           ,trimEndRegexp = new RegExp(ws + ws + "*$");
-      
+
       String.prototype.trim = function() {
           return String(this).replace(trimBeginRegexp, "").replace(trimEndRegexp, "");
       };
