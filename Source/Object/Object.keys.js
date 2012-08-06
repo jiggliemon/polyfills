@@ -13,7 +13,7 @@ define(function(){
 		}
 		var ret = [], p;
 
-		for(p in o){ 
+		for(p in o){
 			if(Object.prototype.hasOwnProperty.call(o,p)) {
 				ret.push(p);
 			}

@@ -14,7 +14,7 @@ define(function(){
 		var  slice = [].slice
 				,args = slice.call(arguments, 1)
 				,self = this
-				,nop = function () {} 	
+				,nop = function () {}
 				,bound = function () {
 					return self.apply( this instanceof nop ? this : ( obj || {} ),	args.concat( slice.call(arguments) ) );
 				};

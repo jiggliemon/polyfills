@@ -15,7 +15,7 @@ define(function(){
 
 		var  t = Object(this)
 			,len = t.length >>> 0;
-	
+
 		if (len === 0)
 			return -1;
 
@@ -36,7 +36,7 @@ define(function(){
 		for (; k < len; k++)
 			if (k in t && t[k] === searchElement)
 				return k;
-	
+
 		return -1;
 	};
 });

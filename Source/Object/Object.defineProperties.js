@@ -59,7 +59,7 @@ define(['./Object.defineProperty','./Object.keys'],function(){
 		var  keys = Object.keys(properties)
 				,descs = []
 				,i = 0;
-			
+
 		for (; i < keys.length; i++){
 			descs.push([keys[i], convertToDescriptor(properties[keys[i]])]);
 		}

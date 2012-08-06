@@ -7,20 +7,24 @@
   <link rel="stylesheet" type="text/css" href="jasmine/jasmine.css">
   <script src="jasmine/jasmine.js"></script>
   <script src="jasmine/jasmine-html.js"></script>
+  <script src="helpers/matchers.js"></script>
   <script src="require.js"></script>
   <script type="text/javascript">
-  window.console && console.time('Load Time');
+  if(window.console){
+    if(console.time)
+      console.time('Load Time');
+  }
   require({
      packages: [
       {
-        name: 'Test',
-        location: '../Specs'
+         name: 'Test'
+        ,location: '../Specs'
       },
       {
-        name: 'Polyfills',
-        location: '../Source',
-        main:'lib/main',
-        lib: '.'
+         name: 'Polyfills'
+        ,location: '../Source'
+        ,main:'lib/main'
+        ,lib: '.'
       }
     ]
     ,ready: function(){
@@ -35,6 +39,7 @@
         'Test/Array/Array.prototype.lastIndexOf',
         'Test/Array/Array.prototype.map',
         'Test/Array/Array.prototype.reduce',
+        'Test/Array/Array.prototype.reduceRight',
         'Test/Array/Array.prototype.shuffle',
         'Test/Array/Array.prototype.some',
         // Date
@@ -60,12 +65,13 @@
         // String
         'Test/String/String.prototype.trim'
       ], function(loaded){
-        
+
         if(window.console){
           console.log(loaded);
-          console && console.timeEnd('Load Time');
+          if(console.time)
+            console.timeEnd('Load Time');
         }
-        
+
         jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
         jasmine.getEnv().execute();
       });
